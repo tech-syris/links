@@ -4,146 +4,183 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2340F0">
 <title>Tech Syris Links</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Tech Syris: honest reviews of gadgets and kitchen appliances from India. Product links, review videos and socials.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Schibsted+Grotesk:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600&display=swap">
 <style>
-  /* Layout: one narrow column built for a phone opened from an Instagram bio.
-     Header, affiliate notice, one featured product, then product groups.
-     Every product row has a Buy link and, where a video exists, a Review link. */
+  /* Layout: one phone-width column. Logo and wordmark, social pills, affiliate notice,
+     a featured product with a large thumbnail, then 2-column product cards by group.
+     Every card: image or brand tile, name, one-line note, review link, full-width Buy button. */
   :root {
-    --bg: #ECEFEC;
+    --bg: #F1F4FF;
     --surface: #FFFFFF;
-    --ink: #12201E;
-    --muted: #566662;
-    --line: #D3DBD8;
-    --accent: #B8420F;
-    --accent-ink: #FFFFFF;
-    --chip: #E1E7E4;
-    --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
-    --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --ink: #0B1236;
+    --muted: #4A5580;
+    --line: #D9DFF5;
+    --primary: #2340F0;
+    --primary-ink: #FFFFFF;
+    --signal: #FFC93C;
+    --chip: #E4E9FF;
+    --ph-a: #E4E9FF;
+    --ph-b: #CFD8FF;
+    --dot: rgba(35, 64, 240, 0.16);
+    --font-display: "Unbounded", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0E1514;
-      --surface: #162120;
-      --ink: #E8EFEC;
-      --muted: #9AAAA5;
-      --line: #263634;
-      --accent: #FF9061;
-      --accent-ink: #1A0F0A;
-      --chip: #1E2D2B;
+      --bg: #090E22;
+      --surface: #121A3A;
+      --ink: #EEF1FF;
+      --muted: #A3AEDB;
+      --line: #26305C;
+      --primary: #8A99FF;
+      --primary-ink: #0A1030;
+      --chip: #1A2450;
+      --ph-a: #1A2450;
+      --ph-b: #26326E;
+      --dot: rgba(138, 153, 255, 0.18);
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0E1514;
-    --surface: #162120;
-    --ink: #E8EFEC;
-    --muted: #9AAAA5;
-    --line: #263634;
-    --accent: #FF9061;
-    --accent-ink: #1A0F0A;
-    --chip: #1E2D2B;
+    --bg: #090E22;
+    --surface: #121A3A;
+    --ink: #EEF1FF;
+    --muted: #A3AEDB;
+    --line: #26305C;
+    --primary: #8A99FF;
+    --primary-ink: #0A1030;
+    --chip: #1A2450;
+    --ph-a: #1A2450;
+    --ph-b: #26326E;
+    --dot: rgba(138, 153, 255, 0.18);
     color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    background: var(--bg);
+    margin: 0;
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--dot) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-attachment: scroll;
     color: var(--ink);
     font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.5;
-    padding-block: 28px 40px;
+    padding-block: 32px 48px;
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
   a { color: inherit; }
-  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  a:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
 
-  .wrap { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  .wrap { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
 
   /* Header */
-  .head { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
-  .mark {
-    width: 72px; height: 72px; border-radius: 50%;
-    display: grid; place-items: center;
-    background: var(--surface);
-    border: 2px solid var(--accent);
-    font-family: var(--font-mono); font-weight: 500; font-size: 24px; letter-spacing: 0.02em;
-  }
-  h1 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 1.1; letter-spacing: -0.01em; }
+  .head { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  .logo { width: 88px; height: 88px; display: block; filter: drop-shadow(0 8px 18px rgba(35, 64, 240, 0.28)); }
+  h1 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1.1; letter-spacing: -0.01em; }
+  h1 span { color: var(--primary); }
   .tag { margin: 0; color: var(--muted); max-width: 34ch; text-wrap: balance; }
-  .social { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 4px; }
+  .social { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 2px; }
   .social a {
     font-family: var(--font-mono); font-size: 13px; text-decoration: none;
-    padding: 8px 14px; border-radius: 999px; background: var(--chip); border: 1px solid var(--line);
+    padding: 9px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line);
   }
-  .social a:hover { border-color: var(--accent); }
+  .social a:hover { border-color: var(--primary); color: var(--primary); }
 
   /* Notice */
   .notice {
-    margin: 0; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 10px;
-    font-size: 13px; color: var(--muted);
+    margin: 0; padding: 12px 14px; border-radius: 10px; font-size: 13px; color: var(--muted);
+    background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--signal);
   }
-  .notice strong { color: var(--ink); font-weight: 500; }
+  .notice strong { color: var(--ink); font-weight: 700; }
+
+  /* Media */
+  .media { position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: linear-gradient(135deg, var(--ph-a), var(--ph-b)); }
+  .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media.brand { display: grid; place-items: center; padding: 8px; text-align: center; }
+  .media.brand span { font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--primary); text-wrap: balance; }
 
   /* Featured */
   .feature {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
-    padding: 20px; display: flex; flex-direction: column; gap: 14px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+    padding: 14px 14px 20px; display: flex; flex-direction: column; gap: 14px;
+    box-shadow: 0 10px 30px -18px rgba(35, 64, 240, 0.45);
   }
-  .kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0; }
-  .feature h2 { margin: 0; font-family: var(--font-display); font-size: 24px; line-height: 1.15; text-wrap: balance; }
+  .feature .body { padding: 0 6px; display: flex; flex-direction: column; gap: 10px; }
+  .kicker {
+    align-self: flex-start; margin: 0; padding: 3px 10px; border-radius: 999px;
+    background: var(--signal); color: #1B1500;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .feature h2 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 1.25; text-wrap: balance; }
   .feature p { margin: 0; color: var(--muted); }
   .actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
   .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    min-height: 44px; padding: 0 18px; border-radius: 10px; text-decoration: none;
-    font-weight: 500; font-size: 15px; border: 1px solid var(--line); background: var(--chip);
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 46px; padding: 0 20px; border-radius: 12px; text-decoration: none;
+    font-weight: 700; font-size: 15px; border: 1px solid var(--line); background: var(--chip);
   }
-  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
-  .btn:hover { filter: brightness(1.06); }
+  .btn.primary { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+  .btn:hover { filter: brightness(1.07); }
 
   /* Groups */
-  .group { display: flex; flex-direction: column; gap: 10px; }
+  .group { display: flex; flex-direction: column; gap: 12px; }
   .group h2 {
-    margin: 0; font-family: var(--font-mono); font-weight: 500; font-size: 12px;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+    margin: 0; display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
   }
-  .list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-  .item {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-    padding: 14px 16px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; align-items: center;
+  .group h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .grid > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+  .card {
+    height: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 8px 8px 12px; display: flex; flex-direction: column; gap: 10px;
   }
-  .item h3 { margin: 0; font-family: var(--font-display); font-size: 17px; line-height: 1.25; font-weight: 600; }
-  .item p { margin: 0; font-size: 14px; color: var(--muted); grid-column: 1; }
-  .item .buy {
-    grid-column: 2; grid-row: 1 / span 2; align-self: center;
-    display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 76px; padding: 0 14px;
-    border-radius: 10px; background: var(--accent); color: var(--accent-ink);
-    text-decoration: none; font-weight: 500; font-size: 15px;
+  .card .info { padding: 0 6px; display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+  .card h3 { margin: 0; font-size: 15px; line-height: 1.3; font-weight: 700; text-wrap: balance; }
+  .card p { margin: 0; font-size: 13px; line-height: 1.4; color: var(--muted); }
+  .card .review {
+    margin-top: 4px; font-family: var(--font-mono); font-size: 12px; color: var(--primary);
+    text-underline-offset: 3px; width: fit-content;
   }
-  .item .buy:hover { filter: brightness(1.06); }
-  .item .meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 14px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 6px; }
-  .item .meta a { text-underline-offset: 3px; }
-  .store { text-transform: lowercase; }
+  .card .buy {
+    margin: 0 6px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 10px; background: var(--primary); color: var(--primary-ink);
+    text-decoration: none; font-weight: 700; font-size: 15px;
+  }
+  .card .buy:hover { filter: brightness(1.07); }
+  .store { font-family: var(--font-mono); font-size: 11px; color: var(--muted); padding: 0 6px; margin-top: -4px; }
+
+  @media (max-width: 340px) { .grid { grid-template-columns: minmax(0, 1fr); } }
 
   .foot { margin: 0; text-align: center; font-size: 12px; color: var(--muted); text-wrap: balance; }
 </style>
-
-<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}</style>
 </head>
 <body>
 <main class="wrap">
   <header class="head">
-    <div class="mark" aria-hidden="true">TS</div>
-    <h1>Tech Syris</h1>
+    <svg class="logo" viewBox="0 0 120 120" role="img" aria-label="Tech Syris logo">
+      <rect width="120" height="120" rx="28" fill="#2340F0"/>
+      <path d="M22 40H54M38 40V80" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M98 40H76Q66 40 66 50Q66 60 76 60H88Q98 60 98 70Q98 80 88 80H66" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="98" cy="22" r="6" fill="#FFC93C"/>
+    </svg>
+    <h1>Tech <span>Syris</span></h1>
     <p class="tag">Honest reviews of gadgets and kitchen appliances, shot in India.</p>
     <nav class="social" aria-label="Tech Syris on other platforms">
       <a href="https://www.youtube.com/@TechSyris" target="_blank" rel="noopener">YouTube</a>
@@ -155,101 +192,145 @@
   <p class="notice"><strong>Some links are affiliate links.</strong> If you buy through them I may earn a commission, at no extra cost to you. As an Amazon Associate I earn from qualifying purchases.</p>
 
   <section class="feature" aria-labelledby="feat-h">
-    <p class="kicker">Start here</p>
-    <h2 id="feat-h">Sujata MG03 mixer grinder</h2>
-    <p>1000 W motor, four jars and a coconut milk extractor. Unboxing and first impressions.</p>
-    <div class="actions">
-      <a class="btn primary" href="https://link.amazon/B0dqzTW0O" target="_blank" rel="sponsored noopener">Buy on Amazon</a>
-      <a class="btn" href="https://www.youtube.com/watch?v=tq3LarlAXHM" target="_blank" rel="noopener">Watch the review</a>
+    <div class="media"><img src="https://i.ytimg.com/vi/tq3LarlAXHM/maxresdefault.jpg" alt="Thumbnail of the Sujata MG03 mixer grinder review video" width="1280" height="720" decoding="async" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"></div>
+    <div class="body">
+      <p class="kicker">Start here</p>
+      <h2 id="feat-h">Sujata MG03 mixer grinder</h2>
+      <p>1000 W motor, four jars and a coconut milk extractor. Unboxing and first impressions.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://link.amazon/B0dqzTW0O" target="_blank" rel="sponsored noopener">Buy on Amazon</a>
+        <a class="btn" href="https://www.youtube.com/watch?v=tq3LarlAXHM" target="_blank" rel="noopener">Watch the review</a>
+      </div>
     </div>
   </section>
 
   <section class="group" aria-labelledby="g-kitchen">
     <h2 id="g-kitchen">Kitchen</h2>
-    <ul class="list">
-      <li class="item">
-        <h3>iBELL SM1301 sandwich maker</h3>
-        <p>750 W, 3-in-1: sandwich, grill and waffle plates.</p>
+    <ul class="grid">
+      <li class="card">
+        <div class="media"><img src="https://i.ytimg.com/vi/8U8nAiApPl8/maxresdefault.jpg" alt="Thumbnail of the iBELL SM1301 sandwich maker video" loading="lazy" width="1280" height="720" decoding="async" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"></div>
+        <div class="info">
+          <h3>iBELL SM1301 sandwich maker</h3>
+          <p>750 W, 3-in-1: sandwich, grill and waffle plates.</p>
+          <a class="review" href="https://www.youtube.com/watch?v=8U8nAiApPl8" target="_blank" rel="noopener">Watch review</a>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://link.amazon/B0brbLIeu" target="_blank" rel="sponsored noopener" aria-label="Buy iBELL SM1301 on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span><a href="https://www.youtube.com/watch?v=8U8nAiApPl8" target="_blank" rel="noopener">Review video</a></div>
       </li>
     </ul>
   </section>
 
   <section class="group" aria-labelledby="g-power">
     <h2 id="g-power">Power backup</h2>
-    <ul class="list">
-      <li class="item">
-        <h3>EcoFlow River 2</h3>
-        <p>The basic, cheapest option for light users.</p>
+    <ul class="grid">
+      <li class="card">
+        <div class="media brand"><span>EcoFlow</span></div>
+        <div class="info">
+          <h3>EcoFlow River 2</h3>
+          <p>The basic, cheapest option for light users.</p>
+          <a class="review" href="https://www.youtube.com/watch?v=xCQBZW8T6aU" target="_blank" rel="noopener">Watch the River 3 Max Plus video</a>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://link.amazon/B0cFDR13C" target="_blank" rel="sponsored noopener" aria-label="Buy EcoFlow River 2 on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span><a href="https://www.youtube.com/watch?v=xCQBZW8T6aU" target="_blank" rel="noopener">EcoFlow review video</a></div>
       </li>
-      <li class="item">
-        <h3>EcoFlow Delta 3 1000 Air</h3>
-        <p>Newer model, built for power users.</p>
+      <li class="card">
+        <div class="media brand"><span>EcoFlow</span></div>
+        <div class="info">
+          <h3>EcoFlow Delta 3 1000 Air</h3>
+          <p>Newer model, built for power users.</p>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://link.amazon/B01Lkykdo" target="_blank" rel="sponsored noopener" aria-label="Buy EcoFlow Delta 3 1000 Air on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span></div>
       </li>
-      <li class="item">
-        <h3>USB booster cable, 5V to 9V</h3>
-        <p>For the mini router UPS build.</p>
+      <li class="card">
+        <div class="media"><img src="https://i.ytimg.com/vi/NMpsjbBaYaY/maxresdefault.jpg" alt="Thumbnail of the mini router UPS build video" loading="lazy" width="1280" height="720" decoding="async" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"></div>
+        <div class="info">
+          <h3>USB booster cable, 5V to 9V</h3>
+          <p>For the mini router UPS build.</p>
+          <a class="review" href="https://www.youtube.com/shorts/NMpsjbBaYaY" target="_blank" rel="noopener">How I built it</a>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://amzn.to/3WoEsj8" target="_blank" rel="sponsored noopener" aria-label="Buy USB booster cable on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span><a href="https://www.youtube.com/shorts/NMpsjbBaYaY" target="_blank" rel="noopener">How I built it</a></div>
       </li>
-      <li class="item">
-        <h3>Robocraze USB booster cable, 5V to 9V</h3>
-        <p>Same cable from another store.</p>
+      <li class="card">
+        <div class="media brand"><span>Robocraze</span></div>
+        <div class="info">
+          <h3>Robocraze USB booster cable</h3>
+          <p>Same 5V to 9V cable from another store.</p>
+        </div>
+        <span class="store">robocraze</span>
         <a class="buy" href="http://bit.ly/47aoMGn" target="_blank" rel="sponsored noopener" aria-label="Buy Robocraze USB booster cable">Buy</a>
-        <div class="meta"><span class="store">robocraze</span></div>
       </li>
-      <li class="item">
-        <h3>Amazon Basics power bank</h3>
-        <p>The power bank used in the router UPS.</p>
+      <li class="card">
+        <div class="media brand"><span>Amazon Basics</span></div>
+        <div class="info">
+          <h3>Amazon Basics power bank</h3>
+          <p>The power bank used in the router UPS.</p>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://amzn.to/48hacho" target="_blank" rel="sponsored noopener" aria-label="Buy Amazon Basics power bank on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span></div>
       </li>
     </ul>
   </section>
 
   <section class="group" aria-labelledby="g-acc">
     <h2 id="g-acc">Accessories</h2>
-    <ul class="list">
-      <li class="item">
-        <h3>Portronics Konnect X Type-C cable</h3>
-        <p>60 W, 2 m, braided. ₹169 when I reviewed it.</p>
+    <ul class="grid">
+      <li class="card">
+        <div class="media"><img src="https://i.ytimg.com/vi/jwXChIb49HA/maxresdefault.jpg" alt="Thumbnail of the Portronics Konnect X cable video" loading="lazy" width="1280" height="720" decoding="async" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"></div>
+        <div class="info">
+          <h3>Portronics Konnect X Type-C cable</h3>
+          <p>60 W, 2 m, braided. ₹169 when I reviewed it.</p>
+          <a class="review" href="https://www.youtube.com/shorts/jwXChIb49HA" target="_blank" rel="noopener">Watch review</a>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://amzn.to/4krkEqP" target="_blank" rel="sponsored noopener" aria-label="Buy Portronics Konnect X cable on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span><a href="https://www.youtube.com/shorts/jwXChIb49HA" target="_blank" rel="noopener">Review video</a></div>
       </li>
-      <li class="item">
-        <h3>Blue Swan hard shell case</h3>
-        <p>For MacBook Pro 14 (M1 to M4).</p>
+      <li class="card">
+        <div class="media"><img src="https://i.ytimg.com/vi/N6GLL_dJ19k/maxresdefault.jpg" alt="Thumbnail of the Blue Swan MacBook case review video" loading="lazy" width="1280" height="720" decoding="async" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"></div>
+        <div class="info">
+          <h3>Blue Swan hard shell case</h3>
+          <p>For MacBook Pro 14 (M1 to M4).</p>
+          <a class="review" href="https://www.youtube.com/watch?v=N6GLL_dJ19k" target="_blank" rel="noopener">Watch review</a>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://amzn.to/4nzI9yg" target="_blank" rel="sponsored noopener" aria-label="Buy Blue Swan hard shell case on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span><a href="https://www.youtube.com/watch?v=N6GLL_dJ19k" target="_blank" rel="noopener">Review video</a></div>
       </li>
-      <li class="item">
-        <h3>WRAP CRAFT skin, blue</h3>
-        <p>Decal skin for MacBook Pro.</p>
+      <li class="card">
+        <div class="media"><img src="https://i.ytimg.com/vi/BvPJGd75WTY/maxresdefault.jpg" alt="Thumbnail of the WrapCart MacBook skin review video" loading="lazy" width="1280" height="720" decoding="async" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"></div>
+        <div class="info">
+          <h3>WRAP CRAFT skin, blue</h3>
+          <p>Decal skin for MacBook Pro.</p>
+          <a class="review" href="https://www.youtube.com/watch?v=BvPJGd75WTY" target="_blank" rel="noopener">Watch review</a>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://amzn.to/46tQHj4" target="_blank" rel="sponsored noopener" aria-label="Buy WRAP CRAFT blue skin on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span><a href="https://www.youtube.com/watch?v=BvPJGd75WTY" target="_blank" rel="noopener">Review video</a></div>
       </li>
-      <li class="item">
-        <h3>WRAP CRAFT skin, black</h3>
-        <p>Decal skin for MacBook Pro.</p>
+      <li class="card">
+        <div class="media"><img src="https://i.ytimg.com/vi/BvPJGd75WTY/maxresdefault.jpg" alt="Thumbnail of the WrapCart MacBook skin review video" loading="lazy" width="1280" height="720" decoding="async" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"></div>
+        <div class="info">
+          <h3>WRAP CRAFT skin, black</h3>
+          <p>Decal skin for MacBook Pro.</p>
+          <a class="review" href="https://www.youtube.com/watch?v=BvPJGd75WTY" target="_blank" rel="noopener">Watch review</a>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://amzn.to/4mrwzUK" target="_blank" rel="sponsored noopener" aria-label="Buy WRAP CRAFT black skin on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span></div>
       </li>
     </ul>
   </section>
 
   <section class="group" aria-labelledby="g-game">
     <h2 id="g-game">Gaming</h2>
-    <ul class="list">
-      <li class="item">
-        <h3>Sup Game Box 400 in 1 Plus</h3>
-        <p>Retro handheld with 400 preloaded games and TV output.</p>
+    <ul class="grid">
+      <li class="card">
+        <div class="media"><img src="https://i.ytimg.com/vi/VjZjXmYZaYw/maxresdefault.jpg" alt="Thumbnail of the Sup Game Box review video" loading="lazy" width="1280" height="720" decoding="async" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"></div>
+        <div class="info">
+          <h3>Sup Game Box 400 in 1 Plus</h3>
+          <p>Retro handheld with 400 preloaded games and TV output.</p>
+          <a class="review" href="https://www.youtube.com/watch?v=VjZjXmYZaYw" target="_blank" rel="noopener">Watch review</a>
+        </div>
+        <span class="store">amazon.in</span>
         <a class="buy" href="https://amzn.to/3ICaQvz" target="_blank" rel="sponsored noopener" aria-label="Buy Sup Game Box on Amazon">Buy</a>
-        <div class="meta"><span class="store">amazon.in</span><a href="https://www.youtube.com/watch?v=VjZjXmYZaYw" target="_blank" rel="noopener">Review video</a></div>
       </li>
     </ul>
   </section>

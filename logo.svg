@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="256" height="256" role="img" aria-label="Tech Syris logo">
+  <rect width="120" height="120" rx="28" fill="#2340F0"/>
+  <path d="M22 40H54M38 40V80" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M98 40H76Q66 40 66 50Q66 60 76 60H88Q98 60 98 70Q98 80 88 80H66" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="98" cy="22" r="6" fill="#FFC93C"/>
+</svg>
