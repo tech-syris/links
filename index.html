@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#2340F0">
 <title>Tech Syris Links</title>
 <meta name="description" content="Tech Syris: honest reviews of gadgets and kitchen appliances from India. Product links, review videos and socials.">
+<link rel="icon" href="https://yt3.ggpht.com/gPj9X9HlSBRUuh1CR7lUHhtz2sWAXJwmnP42GMfEJMQpsTGs0Fbj_bBWXK8VmMjkhX9HE3Xfrlw=s800-c-k-c0x00ffffff-no-rj">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +90,11 @@
 
   /* Header */
   .head { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
-  .logo { width: 88px; height: 88px; display: block; filter: drop-shadow(0 8px 18px rgba(35, 64, 240, 0.28)); }
+  .logo {
+    width: 96px; height: 96px; display: block; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--surface); background: var(--surface);
+    box-shadow: 0 8px 22px -6px rgba(35, 64, 240, 0.45);
+  }
   h1 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1.1; letter-spacing: -0.01em; }
   h1 span { color: var(--primary); }
   .tag { margin: 0; color: var(--muted); max-width: 34ch; text-wrap: balance; }
@@ -174,12 +179,7 @@
 <body>
 <main class="wrap">
   <header class="head">
-    <svg class="logo" viewBox="0 0 120 120" role="img" aria-label="Tech Syris logo">
-      <rect width="120" height="120" rx="28" fill="#2340F0"/>
-      <path d="M22 40H54M38 40V80" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M98 40H76Q66 40 66 50Q66 60 76 60H88Q98 60 98 70Q98 80 88 80H66" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="98" cy="22" r="6" fill="#FFC93C"/>
-    </svg>
+    <img class="logo" src="https://yt3.ggpht.com/gPj9X9HlSBRUuh1CR7lUHhtz2sWAXJwmnP42GMfEJMQpsTGs0Fbj_bBWXK8VmMjkhX9HE3Xfrlw=s800-c-k-c0x00ffffff-no-rj" alt="Tech Syris logo" width="96" height="96" decoding="async" onerror="this.onerror=null;this.src='logo.svg'">
     <h1>Tech <span>Syris</span></h1>
     <p class="tag">Honest reviews of gadgets and kitchen appliances, shot in India.</p>
     <nav class="social" aria-label="Tech Syris on other platforms">
